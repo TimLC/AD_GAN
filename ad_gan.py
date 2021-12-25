@@ -16,9 +16,9 @@ def trainAdGan():
     parser.add_argument('--sizeSeedGenerator', type=int, default=100)
 
     parser.add_argument('--addDenseLayersInDiscriminator', type=int, default=2)
-    parser.add_argument('--coefFiltersDiscriminator', type=int, default=128)
+    parser.add_argument('--coefFiltersDiscriminator', type=int, default=64)
     parser.add_argument('--addCon2dLayersInGenerator', type=int, default=2)
-    parser.add_argument('--coefFiltersGenerator', type=int, default=32)
+    parser.add_argument('--coefFiltersGenerator', type=int, default=128)
 
     parser.add_argument('--numberStepToSaveImage', type=int, default=10)
     parser.add_argument('--numberStepToSaveModel', type=int, default=50)
@@ -27,7 +27,7 @@ def trainAdGan():
     parser.add_argument('--initialDropoutDiscriminator', type=float, default=0.5)
     parser.add_argument('--finalDropoutDiscriminator', type=float, default=0.0)
     parser.add_argument('--stepDropoutDiscriminator', type=float, default=0.1)
-    parser.add_argument('--rateLastDiscriminator', type=float, default=0.75, choices=range(0,1))
+    parser.add_argument('--rateLastDiscriminator', type=float, default=0.75, choices=[i/100 for i in range(0, 100)])
 
     parser.add_argument('--metricLossDiscriminator', type=str, default='binary_crossentropy')
     parser.add_argument('--metricLossGan', type=str, default='binary_crossentropy')
@@ -69,6 +69,7 @@ def getActionArg():
     action_arg, _ = parser.parse_known_args()
 
     return action_arg
+
 
 if __name__ == '__main__':
     tf.get_logger().setLevel('ERROR')

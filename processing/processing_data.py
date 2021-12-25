@@ -1,9 +1,10 @@
 import numpy as np
 
 def generateFakeSample(generator, batchSize, sizeSeedGenerator):
-    fakeSampleX = generator(generateSeedSample(batchSize, sizeSeedGenerator))
+    fakeSampleX = generator.predict(generateSeedSample(batchSize, sizeSeedGenerator))
     fakeSampleY = np.zeros((batchSize, 1))
     return fakeSampleX, fakeSampleY
+
 
 def generateRealSample(dataset, batchSize):
     realSample = dataset[np.random.randint(0, len(dataset), batchSize)]
@@ -11,5 +12,6 @@ def generateRealSample(dataset, batchSize):
     realSampleY = np.ones((batchSize, 1))
     return realSampleX, realSampleY
 
+
 def generateSeedSample(batchSize, sizeSeedGenerator):
-    return np.random.rand(batchSize, sizeSeedGenerator)
+    return np.random.randn(batchSize, sizeSeedGenerator)

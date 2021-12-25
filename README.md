@@ -1,9 +1,9 @@
 # AD-GAN
 
-AD-GAN is a Generative Adversarial Network (GAN) architecture with an adaptive discriminator. It is based on DC-GAN architecture.
+AD-GAN is a Generative Adversarial Network (GAN) architecture with an adaptive discriminator. It is based on DC-GAN architecture. With the use of Tensorflow 2.x.
 
 ## What is a GAN?
-Generative Adversarial Networks (GANs) belong to the family of unsupervised learning algorithms. Their use was first introduced in 2014 by Ian Goodfellow and al. as part of work for the University of Montreal (https://arxiv.org/pdf/1406.2661.pdf).
+Generative Adversarial Networks (GANs) belong to the family of unsupervised learning algorithms. Their use was first introduced in 2014 by Ian Goodfellow and al. as part of work for the University of Montreal (https://arxiv.org/pdf/1406.2661.pdf). 
 
 GANs are generative models. In their conception we find two neural networks placed in competition with one another. 
 
@@ -41,7 +41,7 @@ The AD-GAN model is designed so that the generator and the discriminator do not 
 
 ## Tree of project
 
-Tree of AD-GAN project
+Tree of AD-GAN project :
 
 ```
 AD-GAN
@@ -59,7 +59,9 @@ AD-GAN
 │   │   └───model1
 │   ├───imagesSample
 │   │   └───model1
-│   └───model
+│   ├───model
+│   │   └───model1
+│   └───video
 │       └───model1
 │
 ├───gan_model
@@ -107,12 +109,12 @@ Install package requirements :
 
 ## How to run
 
-To launch the learning of a new database of images:
+To launch the learning of a new database of images, with a system for restoring training in the event of a shutdown. Use the following command:
 ```
 python ad_gan.py
     --action trainAdGan # (Mandatory)
     --modelName model1 # (Mandatory) Model name.
-    --imagesPath MNIST # (Mandatory) Two datasets are pre-implemented: MNIST and CIFAR10, otherwise set path of dataset images.
+    --imagesPath MNIST # (Mandatory) Set path of dataset images otherwise used two datasets are pre-implemented: MNIST and CIFAR10
     --batchSize 128 # Size of batch.
     --epochs 100 # Number of epochs.
     --sizeSeedGenerator 100 # Size of input vector for the generator.
@@ -131,7 +133,9 @@ python ad_gan.py
     --metricLossGan binary_crossentropy # Loss of GAN model.
 ```
 
-To use the model once it is trained, use the following command:
+NB : 
+
+Once the model has been trained, you can modify the values of the generator input vector and see the effects on the generation, use the following command:
 
 ```
 python ad_gan.py
@@ -161,7 +165,11 @@ python ad_gan.py
 
 ### MINST database 
 
-### CIFAR10-cat database 
+Learning on 60,000 images (training + test) of handwritten number of size 28 * 28 * 1:
+
+### CIFAR10-cat database
+
+Learning on 6000 images (training + test) of cat photos of size 32 * 32 * 3:
 
 ## Author
 
