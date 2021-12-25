@@ -29,23 +29,3 @@ def generatorModel(sizeSeedGenerator, sizeImage, addCon2dLayers=0, coefFilters=1
     model.summary()
 
     return model
-
-# def generatorModel(sizeSeedGenerator, sizeImage, addCon2dLayers=0, coefFilters=128):
-# 	model = Sequential()
-# 	# foundation for 4x4 image
-# 	n_nodes = 256 * 4 * 4
-# 	model.add(Dense(n_nodes, input_dim=sizeSeedGenerator))
-# 	model.add(LeakyReLU(alpha=0.2))
-# 	model.add(Reshape((4, 4, 256)))
-# 	# upsample to 8x8
-# 	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
-# 	model.add(LeakyReLU(alpha=0.2))
-# 	# upsample to 16x16
-# 	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
-# 	model.add(LeakyReLU(alpha=0.2))
-# 	# upsample to 32x32
-# 	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
-# 	model.add(LeakyReLU(alpha=0.2))
-# 	# output layer
-# 	model.add(Conv2D(3, (3,3), activation='tanh', padding='same'))
-# 	return model
